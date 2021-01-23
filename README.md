@@ -10,7 +10,7 @@ Online-Shop-Demo is a dummy E-commerce WebApp based on python Django.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Nogozo-Demo
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Online-Shop-Demo
 
 ```bash
 pip install -r requirements.txt
