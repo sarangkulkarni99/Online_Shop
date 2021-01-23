@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "shop/base.html" %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% if category %}{{ category.name }}{% else %}Shop{% endif %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <div class="row">
+        {% for shop in shops %}
+        <div class="card col-sm-12 col-md-6 col-lg-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ shop.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{% if shop.open %}Open{% else %}Closed{% endif %}</h6>
+                <p class="card-text">{{ shop.location }}</p>
+                <a href="{% url 'shop:product_list' shop.id %}" class="card-link">Order Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

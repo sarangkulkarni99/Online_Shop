@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends "shop/base.html" %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    {% block content %}
+    {% for product in products %}
+    <div class="card">
+        <div class="row">
+            <div class="col"><img src="{% if product.image %}{{ product.image.url }}{%else %}
+                {% static 'img/no_image.png' %}{% endif %}" class="card-img-top product"></div>
+            <div class="col">
+                <div class="card-body text-right">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{% if product.available %}Available{% else %}Not
+                        available{% endif %}</h6>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text"> &#8377;{{ product.price }}</p>
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endblock content %}
+</body>
+
+</html>

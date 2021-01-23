@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+Checkout
+{% endblock %}
+{% block content %}
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-8 col-lg-9 order-sm-1 order-2 ">
+            <div class="content container checkout">
+                <h3>Checkout</h3>
+                <h5>Enter your details to checkout</h5>
+                <form method="post" class="order-form">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Place order</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-sm-2 order-1 ">
+            <div class="container-fluid">
+                <div class="order-info">
+                    <h3>Your order</h3>
+                    <br>
+                    <ul>
+                        {% for item in cart %}
+                        <li>
+                            {{ item.quantity }}x {{ item.product.name }}
+                            <span>&#8377;{{ item.total_price }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <p>Total: &#8377;{{ cart.get_total_price }}</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
