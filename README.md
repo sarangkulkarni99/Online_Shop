@@ -1,7 +1,7 @@
-# Nogozo-Demo
+# Online-Shop-Demo
 Deployment link: https://nogozo-demo.herokuapp.com/
 
-Nogozo-Demo is a dummy E-commerce WebApp based on python Django.
+Online-Shop-Demo is a dummy E-commerce WebApp based on python Django.
 
 
 
