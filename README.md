@@ -1,4 +1,5 @@
 # Nogozo-Demo
+Deployment link: https://nogozo-demo.herokuapp.com/
 
 Nogozo-Demo is a dummy E-commerce WebApp based on python Django.
 
