@@ -1,6 +1,10 @@
 # Nogozo-Demo
 
 Nogozo-Demo is a dummy E-commerce WebApp based on python Django.
+
+
+
+
 **After cloning the project, create the local database manually by following lines of code.**
 
 ## Installation
