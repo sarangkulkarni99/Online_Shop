@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'unos+n!9kz1gumy$)gq3(c16^ooug_fqexh8h(l*ko0m0&p5xg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['online-shop-protoype.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -140,7 +140,8 @@ if os.getcwd() == '/app':
     }
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    ALLOWED_HOSTS = ['*']
+    DEBUG = False
+    ALLOWED_HOSTS = ['online-shop-protoype.herokuapp.com']
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'static'
