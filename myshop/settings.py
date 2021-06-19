@@ -145,6 +145,7 @@ if os.getcwd() == '/app':
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'static'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
