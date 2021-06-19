@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'unos+n!9kz1gumy$)gq3(c16^ooug_fqexh8h(l*ko0m0&p5xg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['online-shop-protoype.herokuapp.com']
 
 
 # Application definition
