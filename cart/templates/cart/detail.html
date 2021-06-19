@@ -1,59 +1,67 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% block title %}
-    Your shopping cart
+Your shopping cart
 {% endblock %}
 {% block content %}
-    <h2>Your shopping cart</h1>
-    <table class="cart">
-        <thead>
-            <tr>
-                <th>Product Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-    <tbody>
- {% for item in cart %}
-    {% with product=item.product %}
+<h2 class="cart">Your shopping cart</h2>
+<br>
+<br>
+{% if cart %}
+<table class="table table-responsive">
+    <thead>
         <tr>
-            <td>
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}
-                    {% else %}{% static 'img/no_image.png' %}{% endif %}">
-                </a>
-            </td>
-            <td>{{ product.name }}</td>
-            <td>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ item.update_quantity_form.quantity }}
-                {{ item.update_quantity_form.override }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
-            </td>
-            <td>
+            <th scope="col"></th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit price</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart %}
+        {% with product=item.product %}
+        <tr>
+            <td class="remove">
                 <form action="{% url 'cart:cart_remove' product.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger">Remove</button>
+                    <button type="submit" class="text danger">Delete</button>
                 </form>
             </td>
-            <td class="num">&#8377;{{ item.price }}</td>
-            <td class="num">&#8377;{{ item.total_price }}</td>
+            <td>
+                <a href="{{ product.get_absolute_url }}"><img class="img-fluid"
+                        src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                    {{ product.name }}
+                </a>
+            </td>
+            <td>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {{ item.update_quantity_form.quantity }}
+                    {{ item.update_quantity_form.override }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn-update btn-primary">Update</button>
+                </form>
+            </td>
+            <td>&#8377;{{ item.price }}</td>
+            <td>&#8377;{{ item.total_price }}</td>
         </tr>
- {% endwith %}
- {% endfor %}
-        <tr class="total">
-            <td colspan="5"></td>
+        {% endwith %}
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td class="num">Total &#8377;{{ cart.get_total_price }}</td>
         </tr>
     </tbody>
- </table>
- <p class="text-right">
-    <a href="/" class="btn btn-secondary">Continue shopping</a>
-    <a href="{% url 'orders:order_create' %}"  class="btn btn-success">Checkout</a>
- </p>
+</table>
+{% else %}
+<h4 class="cart">Your cart is empty</h4>
+{% endif %}
+
+<p class="text-right">
+    <a href="/" class="btn btn-primary">Continue shopping</a>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-success">Checkout</a>
+</p>
 {% endblock %}

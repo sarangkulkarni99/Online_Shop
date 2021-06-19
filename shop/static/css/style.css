@@ -84,66 +84,45 @@ img.product{
 }
 
 /***** CART  *****/
-.cart {
-    color: white;
-    text-align: center;
-    margin-right: 10px;
-    padding-top: 5px;
-}
-.cart a {
-    color:white;
-}
-.cart a:hover {
+h2.cart{
+    margin-left: 5rem;
     color: black;
+    text-align: left;
+}
+h4.cart{
+    margin-left: 7rem;
+    color: black;
+    text-align: left;
+}
+td a{
     text-decoration: none;
+    color: black;
+}
+td a:hover{
+    color: black;
 }
 table {
-    width:100%;
-    border-spacing:0;
-    border-collapse: collapse;
+    margin-bottom:1rem;
 }
 
-table th, table td {
-    text-align:center;
-    font-size:14px;
-    padding:10px;
-    margin:0;
-    color: black;
+table img {
+    max-height: 5rem;
 }
 
-tbody tr:nth-child(odd) {
-    background:#efefef;
+td.remove{
+    vertical-align: middle;
+    width: 1%;
+    white-space: nowrap;
 }
-
-tbody tr.subtotal {
-    background:#ccc;
+button.text{
+    padding-top: 2rem;
+    font-size: 0.7rem;
+    border: none;
+    color: red;
+    text-decoration: underline;
+    background-color: inherit;
+    display: inline-block;
 }
-
-thead th, tbody tr.total {
-    background:#5993bb;
-    color:#fff;
-    font-weight:bold;
-    text-align: center;
-}
-
-table.cart {
-    margin-bottom:40px;
-}
-
-table.cart img {
-    width:180px;
-}
-
-tbody td.num {
-    text-align:center;
-}
-
-td input[type="submit"] {
-    font-size:12px;
-    padding:4px 10px;
-}
-
-
 /***** CHECKOUT  *****/
 .checkout{
     padding: 1em;

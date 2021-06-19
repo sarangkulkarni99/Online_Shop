@@ -1,4 +1,6 @@
+.idea
 venv/
 __pycache__/
 *.sqlite3
-
+media/products/
+media/categories/
